@@ -1,4 +1,6 @@
 import typescript from '@rollup/plugin-typescript'
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 
 export default {
   input: 'src/main.ts',
@@ -13,6 +15,8 @@ export default {
     }
   ],
   plugins: [
+    resolve(),
+    babel({babelHelpers: 'bundled'}),
     typescript({
       declaration: true,
       declarationDir: 'dist/types'
